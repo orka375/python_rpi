@@ -15,9 +15,11 @@ import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
 
 # PORT="COM12" #Windows platform
-PORT="/dev/serial0" #Linux platform
+PORT="/dev/ttyUSB0" #Linux platform
 BAUDRATE=9600
 SLAVE_ADDR=0x32
+
+
 
 PID_REG       =  0x00
 VID_REG       =  0x01
@@ -28,6 +30,7 @@ FREQ_REG      =  0x07
 PWM_EN_REG    =  0x08
 
 ser = Serial(port=PORT,baudrate=BAUDRATE, bytesize=8, parity='N', stopbits=1)
+print("here")
 master = modbus_rtu.RtuMaster(ser)
 time.sleep(0.5)
 

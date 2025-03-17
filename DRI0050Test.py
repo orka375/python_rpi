@@ -9,7 +9,7 @@ For frequency higher than 2K, please refer to the following frequency value:
 '''
 
 import time
-import serial
+from serial import *
 import modbus_tk
 import modbus_tk.defines as cst
 from modbus_tk import modbus_rtu
@@ -27,7 +27,7 @@ DUTY_REG      =  0x06
 FREQ_REG      =  0x07
 PWM_EN_REG    =  0x08
 
-ser = serial.Serial(port=PORT,baudrate=BAUDRATE, bytesize=8, parity='N', stopbits=1)
+ser = Serial(port=PORT,baudrate=BAUDRATE, bytesize=8, parity='N', stopbits=1)
 master = modbus_rtu.RtuMaster(ser)
 time.sleep(0.5)
 
